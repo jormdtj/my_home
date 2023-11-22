@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>register page</title>
+</head>
+<body>
+<div class="container">
+<p class="h2 text-center my-3">취업 정보 계정 만들기</p>
+<hr>
+    <p class="font-size: 10px; text-start"><span class="text-danger">*</span> 필수 입력 항목</p>
+<p class="font-size: 18px; text-bg-primary my-3 p-2">기본 정보</p>
+
+<form>
+    <div class="row mb-3 mt-4">
+        <div class="col-sm-6">
+        <label>이름<span class="text-danger"> *</span></label>
+        <input type="text" class="form-control">
+        </div>
+        <div class="col-sm-6">
+        <label>모바일 폰</label>
+        <input type="tel" name="tel" class="form-control" placeholder="010-0000-0000">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-sm-6">
+        <label>이메일<span class="text-danger"> *</span></label>
+        <input type="email" class="form-control" placeholder="id@domail_name">
+        </div>
+        <div class="col-sm-6">
+        <label>홈페이지</label>
+        <input type="text" name="homepg" class="form-control" placeholder="http://">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+        <label>암호<span class="text-danger"> *</span></label>
+        <input type="password" class="form-control">
+        </div>
+        <div class="col-sm-6">
+        <label>주소<span class="text-danger">*</span></label>
+        <input type="text" name="address" class="form-control">
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <div>
+        <label>암호확인<span class="text-danger"> *</span></label>
+        <input type="password" name="passwoed" class="form-control">
+        </div>
+
+    <p class="font-size: 18px; text-bg-success my-3 p-2 mt-5">학력</p>
+        <div class="row mb-3">
+        <div class="col-sm-6">
+        <label>학교명<span class="text-danger"> *</span></label>
+        <input type="text" class="form-control" name="school">
+        </div>
+        <div class="col-sm-6">
+        <label>졸업여부<span class="text-danger"> *</span></label>
+            <select class="form-control" name="graduation">
+                <option value="1">---선택---</option>
+                <option value="2">졸업예정</option>
+                <option value="3">졸업</option>
+            </select>
+        </div>
+    </div>
+
+        <div class="row mb-3">
+        <div class="col-sm-6">
+        <label>전공<span class="text-danger"> *</span></label>
+        <input type="text" class="form-control" name="subject">
+        </div>
+        <div class="col-sm-6">
+        <label>졸업(예정)일 <span class="text-danger"> *</span></label>
+       <input type="date" class="form-control" name="date">
+        </div>
+        </div>
+
+      <p class="font-size: 18px; text-bg-secondary my-3 p-2 mt-5">업무 경력</p>
+    <div> 최종직위
+        <label class="radio">
+            <input type="radio" name="position" checked> 사원급
+            <input type="radio" name="position"> 대리 ~ 과장
+            <input type="radio" name="position"> 차장급 이상
+            <input type="radio" name="position"> 임원급
+        </label>
+    </div>
+        <div class="mt-4 mb-2">주요 담당 업무</div>
+        <div><textarea class="form-control" rows="10" cols="30">담당했던 업무를 기술하시오.</textarea></div>
+    </div>
+</form>
+
+<div class="m-5 text-center">
+    <button type="button" class="btn btn-outline-primary"> 제 출 </button>
+    <button type="button" class="btn btn-outline-primary"> 재작성 </button>
+</div>
+
+</div>
+</body>
+</html>
