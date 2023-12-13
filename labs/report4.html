@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM programming</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function transform() {
+  var binaryValue = document.getElementById('digit').value;
+  if (/^[01]+$/.test(binaryValue)) {
+    var decimalValue = parseInt(binaryValue, 2);
+    var hexadecimalValue = decimalValue.toString(16);
+    document.getElementById('hexanum').value = hexadecimalValue.toUpperCase();
+  } else {
+    alert('Please enter a valid binary number (0s and 1s).');
+    document.getElementById('digit').value = '';
+  }
+}
+
+function pascals() {
+  var size = document.getElementById('size').value;
+  if (/^[1-9]\d*$/.test(size)) {
+    size = parseInt(size);
+    var pascalsTriangle = calculatePascalsTriangle(size);
+    displayPascalsTriangle(pascalsTriangle);
+  } else {
+
+    alert('Please enter a positive integer.');
+    document.getElementById('size').value = '';
+  }
+}
+
+function calculatePascalsTriangle(size) {
+  var triangle = [];
+  for (var i = 0; i < size; i++) {
+    triangle[i] = [];
+    for (var j = 0; j <= i; j++) {
+      if (j === 0 || j === i) {
+        triangle[i][j] = 1;
+      } else {
+        triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+      }
+    }
+  }
+  return triangle;
+}
+
+function displayPascalsTriangle(triangle) {
+  var drawArea = document.getElementById('draw_area');
+  drawArea.innerHTML = '';
+
+  for (var i = 0; i < triangle.length; i++) {
+    var rowDiv = document.createElement('div');
+    rowDiv.classList.add('row');
+
+    for (var j = 0; j < triangle[i].length; j++) {
+      var colDiv = document.createElement('div');
+      colDiv.classList.add('col');
+      colDiv.innerText = triangle[i][j].toString();
+      rowDiv.appendChild(colDiv);
+    }
+
+    drawArea.appendChild(rowDiv);
+  }
+        }
+    </script>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="h3">2진수 변환기</div>
+    <div class="mb-3">
+        <label class="form-label text-primary">2 진수 :
+            <input type="text" id="digit" size="20">
+        </label>
+        <button type="button" class="btn btn-dark" onclick="transform()"> ===> </button>
+        <label class="form-label text-primary">16 진수
+            <input type="text" id="hexanum" size="20" readonly>
+        </label>
+    </div>
+    <hr>
+    <div class="h3">파스칼 삼각형</div>
+    <div class="mb-3">
+        <label class="form-label text-primary">삼각형 높이
+            <input type="number" id="size" min="1" max="20" step="1" value="1">
+        </label>
+        <button type="button" class="btn btn-success" onclick="pascals()">그리기</button>
+    </div>
+    <div class="text-bg-secondary" id="draw_area"></div>
+</div>
+</body>
+</html>
